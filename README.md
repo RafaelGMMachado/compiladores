@@ -15,7 +15,7 @@ return ->
 sizeof -> 
 static -> 
 struct -> 
-default -> 
+default -> cinzeiro
 
 
 espetinhp
@@ -26,10 +26,14 @@ sinuca
 truco
 zap
 domino
+cacheta
+
+Derby
+MalboroVermelho
 
 chevete
 ressaca
-
+sangueDeBoi
 happyHour
 corote
 sobrio
@@ -53,5 +57,10 @@ float -> dose
 int -> latinha
 long -> longNeck
 void -> vodka
-char -> 
+char -> calabresa
 const -> combo
+
+
+
+
+
