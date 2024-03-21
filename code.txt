@@ -1,0 +1,4 @@
+int x = 2;
+float equacao(int x){
+    return (x + x) / 2.56 + 9
+}
