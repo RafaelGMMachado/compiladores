@@ -11,16 +11,22 @@ public class MathOperator extends AFD{
         switch (code.current()){
             case '+':
                 code.next();
-                return new Token("PLUS", "+");
+                return new Token("OPERADOR_MAIS", "+");
             case '-':
                 code.next();
-                return new Token("LESS", "-");
+                return new Token("OPERADOR_MENOS", "-");
             case '*':
                 code.next();
-                return new Token("TIMES", "*");
+                    
+                if (code.current() == '*') {
+                    code.next();
+                    return new Token("OPERADOR_VEZES", "**");
+                }
+                
+                else return new Token("OPERADOR_EXPONENCIACAO", "*");
             case '/':
                 code.next();
-                return new Token("DIVIDE", "/");
+                return new Token("OPERADOR_DIVIDIR", "/");
 
             default:
                 return null;

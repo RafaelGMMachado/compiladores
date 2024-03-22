@@ -1,4 +1,10 @@
 int x = 2;
 float equacao(int x){
-    return (x + x) / 2.56 + 9
+    return (x + x) / 2.56 + 9 * 3 **9
+}
+if (x < 2){
+    equacao(x+2)
+}
+else if (x >= 2 and x <= 7 ) {
+    equacao(x)
 }
