@@ -11,6 +11,7 @@ import AFDS.ID;
 import AFDS.MathOperator;
 import AFDS.Number;
 import AFDS.Types;
+import AFDS.Relacao;
 
 public class Lexer {
     
@@ -22,9 +23,10 @@ public class Lexer {
         tokens = new ArrayList<>();
         this.code = new StringCharacterIterator(code);
         afds = new ArrayList<>();
+        afds.add(new Delimitadores());
         afds.add(new Types());
         afds.add(new MathOperator());
-        afds.add(new Delimitadores());
+        afds.add(new Relacao());
         afds.add(new Number());
         afds.add(new ID());
         afds.add(new Comentario());

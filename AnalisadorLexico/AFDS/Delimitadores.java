@@ -23,6 +23,12 @@ public class Delimitadores extends AFD{
                 return new Token("RCHAVE", "}");
             case '=':
                 code.next();
+
+                if (code.current() == '=') {
+                    code.next();
+                    return new Token("RELACAO_IGUAL", "==");
+                }
+
                 return new Token("ATRIBUICAO", "=");
             case ';':
                 code.next();
