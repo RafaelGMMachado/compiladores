@@ -1,6 +1,7 @@
 package AFDS;
 import java.text.CharacterIterator;
 
+import Utility.Functions;
 import Token.Token;
 
 public class ID extends AFD{
@@ -11,7 +12,7 @@ public class ID extends AFD{
         if (Character.isLetter(code.current())){
             String letter = readLetter(code);
 
-            if (endLetter(code)){
+            if (Functions.validateEnd(code)){
                 return new Token("ID", letter);
             }
         }
@@ -26,20 +27,4 @@ public class ID extends AFD{
         }
         return letter;
     }
-
-    private boolean endLetter(CharacterIterator code){
-        return code.current() == ' ' ||
-            code.current() == '+' ||
-            code.current() == '-' ||
-            code.current() == '*' ||
-            code.current() == '/' ||
-            code.current() == '(' ||
-            code.current() == ')' ||
-            code.current() == '{' ||
-            code.current() == '}' ||
-            code.current() == ';' ||
-            code.current() == '\n' ||
-            code.current() == CharacterIterator.DONE;
-    }
-
 }
