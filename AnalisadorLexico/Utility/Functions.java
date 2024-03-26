@@ -1,10 +1,12 @@
 package Utility;
 
 import java.text.CharacterIterator;
+import java.util.Arrays;
+import java.util.List;
 
 public class Functions {
-    private static char[] validacoes = {' ', '+', '-', '*', '/', '(', ')', '{', '}', ';', '\n' , CharacterIterator.DONE};
-    
+    private static List<Character> validacoes = Arrays.asList(' ', '+', '-', '*', '/', '(', ')', '{', '}', ';', '\n' , CharacterIterator.DONE);
+
     public static boolean validateEnd(CharacterIterator code){
 
         for (char validacao : validacoes){
@@ -13,4 +15,5 @@ public class Functions {
         }
         return false;
     }
+
 }
