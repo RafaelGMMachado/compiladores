@@ -1,6 +1,7 @@
 package AFDS;
 import java.text.CharacterIterator;
 
+import Utility.Functions;
 import Token.Token;
 
 public class Number extends AFD{
@@ -11,13 +12,13 @@ public class Number extends AFD{
         if (Character.isDigit(code.current())){
             String number = readNumber(code);
 
-            if (code.current() != '.' && endNumber(code)){
+            if (code.current() != '.' && Functions.validateEnd(code)){
                 return new Token("NUM", number);
             }
 
             code.next();
             number += '.' + readNumber(code);
-            if (endNumber(code)){
+            if (Functions.validateEnd(code)){
                 return new Token("FLUTUANTE", number);
             }
         }
@@ -31,21 +32,6 @@ public class Number extends AFD{
             code.next();
         }
         return number;
-    }
-
-    private boolean endNumber(CharacterIterator code){
-        return code.current() == ' ' ||
-            code.current() == '+' ||
-            code.current() == '-' ||
-            code.current() == '*' ||
-            code.current() == '/' ||
-            code.current() == '(' ||
-            code.current() == ')' ||
-            code.current() == '{' ||
-            code.current() == '}' ||
-            code.current() == ';' ||
-            code.current() == '\n' ||
-            code.current() == CharacterIterator.DONE;
     }
 
 }
