@@ -18,6 +18,8 @@ public class Lexer {
     private List<Token> tokens;
     private List<AFD> afds;
     private CharacterIterator code;
+    private int line = 1;
+    private int lastColumn = 0;
 
     public Lexer(String code){
         tokens = new ArrayList<>();
@@ -34,6 +36,10 @@ public class Lexer {
 
     public void skipWhiteSpace(){
         while (code.current() == ' ' || code.current() == '\n' || code.current() == '\t' || code.current() == '\r'){
+            if (code.current() == '\n'){
+                line ++;
+                lastColumn = code.getIndex();
+            } 
             code.next();
         }
     }
@@ -58,7 +64,7 @@ public class Lexer {
             }
 
             if (accepted) continue;
-            throw new RuntimeException("Error: Token not recognized: " + code.current());
+            throw new RuntimeException("Error: Token not recognized: " + code.current() + " | Line: " + line + " Column: " + (code.getIndex()-lastColumn) );
         }
         tokens.add(new Token("EOF", "$"));
         return tokens;
