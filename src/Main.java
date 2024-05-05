@@ -24,9 +24,8 @@ public class Main {
         parser.run();
     }
 
-    static String readFile(String path, Charset encoding) throws IOException 
-    {
-    byte[] encoded = Files.readAllBytes(Paths.get(path));
-    return encoding.decode(ByteBuffer.wrap(encoded)).toString();
+    static String readFile(String path, Charset encoding) throws IOException {
+        byte[] encoded = Files.readAllBytes(Paths.get(path));
+        return encoding.decode(ByteBuffer.wrap(encoded)).toString();
     }
 }
