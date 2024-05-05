@@ -25,13 +25,13 @@ public class Lexer {
         tokens = new ArrayList<>();
         this.code = new StringCharacterIterator(code);
         afds = new ArrayList<>();
+        afds.add(new Comentario());
         afds.add(new Delimitadores());
         afds.add(new Types());
         afds.add(new MathOperator());
         afds.add(new Relacao());
         afds.add(new Number());
         afds.add(new ID());
-        afds.add(new Comentario());
     }
 
     public void skipWhiteSpace(){
@@ -56,7 +56,8 @@ public class Lexer {
                 Token t = afd.evaluate(code);
                 if (t != null){
                     accepted = true;
-                    tokens.add(t);
+                    if (t.getTipo() != "COMENTARIO")
+                        tokens.add(t);
                     break;
                 }else {
                     code.setIndex(pos);
