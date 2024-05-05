@@ -4,7 +4,7 @@ import java.util.List;
 
 import Token.Token;
 
-public abstract class Utility {
+public abstract class Sintatico {
     public static List<Token> tokens;
     public static Token token;
 

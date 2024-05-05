@@ -12,10 +12,10 @@ import Sintatico.GLCs.*;
  *
  * @author unifrmachado
  */
-public class Parser extends Utility{
+public class Parser extends Sintatico{
 
     public Parser(List<Token> tokens){
-        Utility.tokens = tokens;
+        Sintatico.tokens = tokens;
     }
     
     public void run(){
@@ -25,7 +25,7 @@ public class Parser extends Utility{
         if (Fluxo.statement())
                 if ("EOF".equals(token.getTipo()))
                         sucesso = success();
-        if (!sucesso)
+        if (sucesso)
             erro("main");
     }
 }

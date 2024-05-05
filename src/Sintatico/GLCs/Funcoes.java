@@ -1,7 +1,7 @@
 package Sintatico.GLCs;
 
-import Sintatico.Utility;
+import Sintatico.Sintatico;
 
-public class Funcoes extends Utility {
+public class Funcoes extends Sintatico {
     
 }

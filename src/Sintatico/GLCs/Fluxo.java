@@ -1,8 +1,8 @@
 package Sintatico.GLCs;
 
-import Sintatico.Utility;
+import Sintatico.Sintatico;
 
-public class Fluxo extends Utility {
+public class Fluxo extends Sintatico {
 
     public static boolean statement(){
         if (lexemaEquals("if") && if_statement())

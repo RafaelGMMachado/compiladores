@@ -1,7 +1,7 @@
 package Sintatico.GLCs;
 
-import Sintatico.Utility;
+import Sintatico.Sintatico;
 
-public class Variaveis  extends Utility{
+public class Variaveis  extends Sintatico{
     
 }
