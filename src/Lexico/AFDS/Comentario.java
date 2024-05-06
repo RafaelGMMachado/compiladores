@@ -22,7 +22,7 @@ public class Comentario extends AFD{
 
     private String readComment(CharacterIterator code){
         String comment = "//";
-        while (code.current() != '\n' || code.current() != CharacterIterator.DONE){
+        while (code.current() != '\n' && code.current() != CharacterIterator.DONE){
             comment += code.current();
             code.next();
         }

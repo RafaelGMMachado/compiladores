@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import Sintatico.Parser;
 import Token.Token;
 
 public class Main {
@@ -18,11 +19,13 @@ public class Main {
         for (Token token : tokens){
             System.out.println(token);
         }
+
+        Parser parser = new Parser(tokens);
+        parser.run();
     }
 
-    static String readFile(String path, Charset encoding) throws IOException 
-    {
-    byte[] encoded = Files.readAllBytes(Paths.get(path));
-    return encoding.decode(ByteBuffer.wrap(encoded)).toString();
+    static String readFile(String path, Charset encoding) throws IOException {
+        byte[] encoded = Files.readAllBytes(Paths.get(path));
+        return encoding.decode(ByteBuffer.wrap(encoded)).toString();
     }
 }
