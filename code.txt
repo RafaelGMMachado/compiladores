@@ -1,6 +1,9 @@
-if (x < 2){
-    equacao(x+2)
-}
-elif (x >= 2 and x <= 7 ) {
-    equacao(x)
-}
+whiskey  (teste)
+{
+	corote 2:
+	velho(teste == 1)
+        {
+	teste = 2;
+        }
+	bebado;
+} 
