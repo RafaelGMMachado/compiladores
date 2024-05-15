@@ -3,18 +3,18 @@
 * if -> velho
 * else -> barreiro
 * else if -> velhoBarreiro
-* do ->
-* while -> 
-* for -> 
+* do -> catuaba
+* while -> amendoim
+* for -> torresmo
 * break -> PT
 * continue -> engov
 * return -> insulina
 * switch -> 
 * case -> 
-* return -> 
-* sizeof -> 
-* static -> 
-* struct -> 
+* return -> pitu
+* sizeof -> smirnoff
+* static -> ressaca
+* struct -> pingado
 * default -> cinzeiro
 
 
