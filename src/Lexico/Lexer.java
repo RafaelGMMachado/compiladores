@@ -12,6 +12,8 @@ import AFDS.MathOperator;
 import AFDS.Number;
 import AFDS.Types;
 import AFDS.Relacao;
+import AFDS.Conditionals;
+
 
 public class Lexer {
     
@@ -25,6 +27,7 @@ public class Lexer {
         tokens = new ArrayList<>();
         this.code = new StringCharacterIterator(code);
         afds = new ArrayList<>();
+        afds.add(new Conditionals());
         afds.add(new Comentario());
         afds.add(new Delimitadores());
         afds.add(new Types());

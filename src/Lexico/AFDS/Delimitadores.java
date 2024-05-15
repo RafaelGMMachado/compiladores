@@ -34,6 +34,10 @@ public class Delimitadores extends AFD{
                 code.next();
                 return new Token("FIM", ";");
 
+            case ':':
+                code.next();
+                return new Token("DOIS_PONTOS", ":");
+
             default:
                 return null;
         }
