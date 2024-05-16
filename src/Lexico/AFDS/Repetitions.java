@@ -6,34 +6,28 @@ import java.util.List;
 import Token.Token;
 import Utility.Dicionario;
 
-public class Conditionals extends AFD{
+public class Repetitions extends AFD{
     
     List<Dicionario> reservadas;
 
-    public Conditionals()
+    public Repetitions()
     {
         reservadas = new ArrayList<>();
-        reservadas.add(new Dicionario("if", "velho"));
-        reservadas.add(new Dicionario("else", "barreiro"));
-        reservadas.add(new Dicionario("else if", "sangueDeBoi"));
-        reservadas.add(new Dicionario("switch", "whiskey"));
-        reservadas.add(new Dicionario("case", "corote"));
-        reservadas.add(new Dicionario("default", "defeito"));
-        reservadas.add(new Dicionario("break", "bebado"));
-        reservadas.add(new Dicionario("goto", "gotoso"));
+        reservadas.add(new Dicionario("do", "catuaba"));
+        reservadas.add(new Dicionario("while", "amendoim"));
+        reservadas.add(new Dicionario("for", "torresmo"));
     }
 
     @Override
     public Token evaluate(CharacterIterator code)
     {
         int pos = code.getIndex();
-
         for (Dicionario reservada : reservadas){
             for (char c : reservada.valor.toCharArray()){
                 if (code.current() == c){
                     code.next(); 
                 }
-                else {
+                else{
                     code.setIndex(pos);
                     break;
                 }
@@ -50,7 +44,7 @@ public class Conditionals extends AFD{
         return code.current() == ' ' ||
             code.current() == '\n'   ||
             code.current() == '('    ||
-            code.current() == ';'    ||
+            // code.current() == ';'    ||
             code.current() == CharacterIterator.DONE;
     }
     

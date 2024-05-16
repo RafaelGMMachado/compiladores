@@ -13,7 +13,7 @@ import AFDS.Number;
 import AFDS.Types;
 import AFDS.Relacao;
 import AFDS.Conditionals;
-
+import AFDS.Repetitions;
 
 public class Lexer {
     
@@ -27,9 +27,10 @@ public class Lexer {
         tokens = new ArrayList<>();
         this.code = new StringCharacterIterator(code);
         afds = new ArrayList<>();
-        afds.add(new Conditionals());
         afds.add(new Comentario());
         afds.add(new Delimitadores());
+        afds.add(new Conditionals());
+        afds.add(new Repetitions());
         afds.add(new Types());
         afds.add(new MathOperator());
         afds.add(new Relacao());

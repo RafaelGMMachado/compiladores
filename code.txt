@@ -1,9 +1,4 @@
-whiskey  (teste)
+torresmo(latinha i = 0; i < 4; i++)
 {
-	corote 2:
-	velho(teste == 1)
-        {
-	teste = 2;
-        }
-	bebado;
-} 
+	
+}
