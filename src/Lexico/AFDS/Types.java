@@ -17,10 +17,15 @@ public class Types extends AFD{
         reservadas.add(new Dicionario("short", "shot"));
         reservadas.add(new Dicionario("int", "latinha"));
 
+        int pos = code.getIndex();
         for (Dicionario reservada : reservadas){
             for (char c : reservada.valor.toCharArray()){
                 if (code.current() == c)
-                    code.next();   
+                    code.next();
+                else{
+                    code.setIndex(pos);
+                    break;
+                }
             }
             if (endPalavra(code)){
                 return new Token("RESERVADA_" + reservada.chave.toUpperCase(), reservada.valor);
