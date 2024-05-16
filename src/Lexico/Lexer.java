@@ -8,6 +8,7 @@ import Token.Token;
 import AFDS.Comentario;
 import AFDS.Delimitadores;
 import AFDS.ID;
+import AFDS.IOs;
 import AFDS.MathOperator;
 import AFDS.Number;
 import AFDS.Types;
@@ -31,6 +32,7 @@ public class Lexer {
         afds.add(new Delimitadores());
         afds.add(new Conditionals());
         afds.add(new Repetitions());
+        afds.add(new IOs());
         afds.add(new Types());
         afds.add(new MathOperator());
         afds.add(new Relacao());
