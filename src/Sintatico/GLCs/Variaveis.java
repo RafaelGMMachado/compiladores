@@ -50,8 +50,10 @@ public class Variaveis  extends Sintatico{
     }
 
     public static boolean atribuicao2(){
-        if (matchLexema("=") && expressaoAritimetica() && matchLexema(";") && Parser.codigo())
-            return true;
+        if (matchLexema("=")){
+            if ((string() || expressaoAritimetica()) && matchLexema(";") && Parser.codigo())
+                return true;
+        }
 
         erro("atribuicao2");
         return false;

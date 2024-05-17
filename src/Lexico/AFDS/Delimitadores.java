@@ -38,6 +38,14 @@ public class Delimitadores extends AFD{
                 code.next();
                 return new Token("DOIS_PONTOS", ":");
 
+            case '\"':
+                code.next();
+                return new Token("ASPAS_DUPLAS", "\"");
+            
+            case '\'':
+                code.next();
+                return new Token("ASPAS_SIMPLES", "\'");
+
             default:
                 return null;
         }
