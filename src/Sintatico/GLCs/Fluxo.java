@@ -10,14 +10,16 @@ public class Fluxo extends Sintatico {
             return true;
         else if (lexemaEquals("while") && while_statement())
             return true;
+        else if (lexemaEquals("for") && for_statement())
+            return true;
 
         return false;
     }
 
     public static boolean if_statement(){
         if (matchLexema("if") && matchLexema("(") && condicao() && matchLexema(")") && 
-            matchLexema("{") && code() && matchLexema("}") &&
-            elif_statement() && else_statement() && Parser.codigo())
+            matchLexema("{") && Parser.codigo() && matchLexema("}") &&
+            elif_statement() && else_statement() && ( lexemaEquals("}") || Parser.codigo() ))
         {
             return true;
         }
@@ -30,7 +32,7 @@ public class Fluxo extends Sintatico {
         if (matchLexema("elif")  )
         {
             if (matchLexema("(") && condicao() && matchLexema(")") && 
-                matchLexema("{") && code() && matchLexema("}") && elif_statement())
+                matchLexema("{") && Parser.codigo() && matchLexema("}") && elif_statement())
             {
                 return true;
             }
@@ -44,7 +46,7 @@ public class Fluxo extends Sintatico {
     public static boolean else_statement(){ // colocar para poder ser nulo
         if (matchLexema("else"))
         {
-            if (matchLexema("{") && code() && matchLexema("}"))
+            if (matchLexema("{") && Parser.codigo() && matchLexema("}"))
             {
                 return true;
             }
@@ -56,11 +58,20 @@ public class Fluxo extends Sintatico {
     }
 
     public static boolean while_statement(){
+        if (matchLexema("while") && matchLexema("(") && condicao() && matchLexema(")") &&
+            matchLexema("{") && Parser.codigo() && matchLexema("}") && ( lexemaEquals("}") || Parser.codigo() ))
+        {
+            return true;
+        }
+
+        erro("While");
+        return false;
+    }
+
+    public static boolean for_statement(){
         code();
         return true;
     }
-
-    
 
     public static boolean code(){
         while (!lexemaEquals("}"))

@@ -6,7 +6,8 @@ import Sintatico.Sintatico;
 public class Funcoes extends Sintatico {
 
     public static boolean print(){
-        if (matchLexema("canta") && matchLexema("(") && ( matchTipo("ID") || Variaveis.string() ) && matchLexema(")") && matchLexema(";") && Parser.codigo()){
+        if (matchLexema("canta") && matchLexema("(") && ( matchTipo("ID") || Variaveis.string() ) && matchLexema(")") && matchLexema(";") && 
+        ( lexemaEquals("}") || Parser.codigo() )){
             return true;
         }
 
@@ -15,7 +16,7 @@ public class Funcoes extends Sintatico {
     }
 
     public static boolean scan(){
-        if (matchLexema("bebe") && matchLexema("(") && argumentoScan() && matchLexema(")") && matchLexema(";") && Parser.codigo()){
+        if (matchLexema("bebe") && matchLexema("(") && argumentoScan() && matchLexema(")") && matchLexema(";") && ( lexemaEquals("}") || Parser.codigo() )){
             return true;
         }
 
