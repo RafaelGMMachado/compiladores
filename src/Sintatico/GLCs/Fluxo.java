@@ -11,7 +11,6 @@ public class Fluxo extends Sintatico {
         else if (lexemaEquals("while") && while_statement())
             return true;
 
-        erro("If");
         return false;
     }
 
