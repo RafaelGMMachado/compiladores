@@ -30,6 +30,11 @@ public class Delimitadores extends AFD{
                 }
 
                 return new Token("ATRIBUICAO", "=");
+
+            case ',':
+                code.next();
+                return new Token("VIRGULA", ",");
+
             case ';':
                 code.next();
                 return new Token("FIM", ";");
