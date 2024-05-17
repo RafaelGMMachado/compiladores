@@ -38,6 +38,10 @@ public class Parser extends Sintatico{
             return true;
         else if (tipoEquals("ID") && Variaveis.atribuicao())
             return true;
+        else if (lexemaEquals("canta") && Funcoes.print())
+            return true;
+        else if (lexemaEquals("bebe") && Funcoes.scan())
+            return true;
 
         erro("codigo");
         return false;
