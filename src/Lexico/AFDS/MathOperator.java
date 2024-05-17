@@ -28,6 +28,10 @@ public class MathOperator extends AFD{
                 code.next();
                 return new Token("OPERADOR_DIVIDIR", "/");
 
+            case '%':
+                code.next();
+                return new Token("OPERADOR_RESTO", "%");
+
             default:
                 return null;
         }
