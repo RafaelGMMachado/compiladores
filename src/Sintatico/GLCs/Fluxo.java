@@ -1,5 +1,6 @@
 package Sintatico.GLCs;
 
+import Sintatico.Parser;
 import Sintatico.Sintatico;
 
 public class Fluxo extends Sintatico {
@@ -17,7 +18,7 @@ public class Fluxo extends Sintatico {
     public static boolean if_statement(){
         if (matchLexema("if") && matchLexema("(") && condicao() && matchLexema(")") && 
             matchLexema("{") && code() && matchLexema("}") &&
-            elif_statement() && else_statement())
+            elif_statement() && else_statement() && Parser.codigo())
         {
             return true;
         }

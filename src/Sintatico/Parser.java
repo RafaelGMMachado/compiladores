@@ -22,10 +22,18 @@ public class Parser extends Sintatico{
         boolean sucesso = false;
 
         token = nextToken();
-        if (Fluxo.statement())
+        if (codigo())
                 if ("EOF".equals(token.getTipo()))
                         sucesso = success();
-        if (sucesso)
+        if (!sucesso)
             erro("main");
+    }
+
+    public static boolean codigo(){
+        if ("EOF".equals(token.getTipo()) || Fluxo.statement())
+            return true;
+
+        erro("codigo");
+        return false;
     }
 }
