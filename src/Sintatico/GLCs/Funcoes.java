@@ -24,18 +24,20 @@ public class Funcoes extends Sintatico {
     }
 
     public static boolean argumentoScan(){
-        if (matchLexema("\"") && matchLexema("%")){
-            if (lexemaEquals("s")){
-                if (matchLexema("s") && matchLexema("\"") && matchLexema(",") && matchTipo("ID"))
-                    return true;
-            }
-            else if (lexemaEquals("d")){
-                if (matchLexema("d") && matchLexema("\"") && matchLexema(",") && matchLexema("&") && matchTipo("ID") )
-                    return true;
-            }
+        if (matchLexema("\"") && matchLexema("%") && tipoScan() && matchLexema("\"") && matchLexema(",") && ( matchLexema("&") || true ) && matchTipo("ID")){
+            return true;
         }
 
         erro("argumentoScan");
+        return false;
+    }
+
+    public static boolean tipoScan(){
+        if (matchLexema("s") || matchLexema("d")){
+            return true;
+        }
+
+        erro("tipoScan");
         return false;
     }
 }
