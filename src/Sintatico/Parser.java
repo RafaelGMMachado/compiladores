@@ -22,7 +22,7 @@ public class Parser extends Sintatico{
         boolean sucesso = false;
 
         token = nextToken();
-        if (Fluxo.statement())
+        if (Expressoes.expressao())
                 if ("EOF".equals(token.getTipo()))
                         sucesso = success();
         if (sucesso)
