@@ -9,37 +9,13 @@ public class Variaveis  extends Sintatico{
         if (matchTipoDado() && matchTipo("ID")){
             if (lexemaEquals("=") && atribuicao2())
                 return true;
-            else if (matchLexema(";") && Parser.codigo())
+            else if (matchLexema(";") && ( lexemaEquals("}") || Parser.codigo() ))
                 return true;
         }
 
         erro("declara");
         return false;
     }
-
-    /*
-    Tirei por que está dando problema 
-    
-    public static boolean declara(){
-        if (tipo_dado()){
-            if ((matchTipo("ID") || decl_array()) && matchLexema(";"))
-                return true;
-        }
-
-        erro("declara");
-        return false;
-    }
-
-    public static boolean inicializa(){
-        if (tipo_dado()){
-            if (atribuicao())
-                return true;
-        }
-
-        erro("inicializa");
-        return false;
-    }
-    */
 
     public static boolean atribuicao(){
         if (matchTipo("ID") && atribuicao2())
@@ -51,7 +27,7 @@ public class Variaveis  extends Sintatico{
 
     public static boolean atribuicao2(){
         if (matchLexema("=")){
-            if ((string() || expressaoAritimetica()) && matchLexema(";") && Parser.codigo())
+            if ((string() || expressaoAritimetica()) && matchLexema(";") && ( lexemaEquals("}") || Parser.codigo() ))
                 return true;
         }
 
