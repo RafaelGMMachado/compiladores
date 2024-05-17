@@ -15,6 +15,7 @@ import AFDS.Types;
 import AFDS.Relacao;
 import AFDS.Conditionals;
 import AFDS.Repetitions;
+import AFDS.Conjuncao;
 
 public class Lexer {
     
@@ -30,6 +31,7 @@ public class Lexer {
         afds = new ArrayList<>();
         afds.add(new Comentario());
         afds.add(new Delimitadores());
+        afds.add(new Conjuncao());
         afds.add(new Conditionals());
         afds.add(new Repetitions());
         afds.add(new IOs());
