@@ -6,7 +6,7 @@ import Sintatico.Sintatico;
 public class Variaveis  extends Sintatico{
     
     public static boolean declara(){
-        if (matchTipoDado() && (matchTipo("ID") || decl_array())){
+        if (matchTipoDado() && matchTipo("ID")){
             if (lexemaEquals("=") && atribuicao2())
                 return true;
             else if (matchLexema(";") && Parser.codigo())
@@ -44,8 +44,6 @@ public class Variaveis  extends Sintatico{
     public static boolean atribuicao(){
         if (matchTipo("ID") && atribuicao2())
             return true;
-        else if (decl_array())
-            return true;
 
         erro("atribuicao");
         return false;
@@ -59,18 +57,8 @@ public class Variaveis  extends Sintatico{
         return false;
     }
 
-
-    public static boolean decl_array(){
-        if (matchTipo("ID") && matchLexema("=") && valor_inicial()){
-            return true;
-        }
-
-        erro("decl_array");
-        return false;
-    }
-
     public static boolean matchTipoDado(){
-        if (matchTipo("RESERVADA_INT") || matchLexema("RESERVADA_FLOAT") || matchLexema("RESERVADA_DOUBLE") || matchLexema("RESERVADA_SHORT"))
+        if (matchTipo("RESERVADA_INT") || matchTipo("RESERVADA_FLOAT") || matchTipo("RESERVADA_DOUBLE") || matchTipo("RESERVADA_SHORT"))
         {
             return true;
         }
