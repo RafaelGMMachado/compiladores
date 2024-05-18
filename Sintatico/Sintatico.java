@@ -3,11 +3,14 @@ package Sintatico;
 import java.util.List;
 
 import Sintatico.AST.Node;
+import Sintatico.AST.Tree;
 import Lexico.Token;
 
 public abstract class Sintatico {
     public static List<Token> tokens;
     public static Token token;
+    public static Tree arvore;
+    public static Node no;
 
     public static Token nextToken(){
         if (tokens.size() > 0)
@@ -44,6 +47,7 @@ public abstract class Sintatico {
 
     public static boolean matchLexema(String lexema){
         if (token.getLexema().equals(lexema)){
+            no.addChild(lexema);
             token = nextToken();
             return true;
         }
@@ -69,6 +73,7 @@ public abstract class Sintatico {
     
     public static boolean matchTipo(String tipo){
         if (token.getTipo().equals(tipo)){
+            no.addChild(token.getLexema());
             token = nextToken();
             return true;
         }

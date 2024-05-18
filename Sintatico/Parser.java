@@ -2,6 +2,9 @@ package Sintatico;
 
 import Lexico.Token;
 import java.util.List;
+
+import Sintatico.AST.Node;
+import Sintatico.AST.Tree;
 import Sintatico.GLCS.*;
 
 public class Parser extends Sintatico{
@@ -12,11 +15,16 @@ public class Parser extends Sintatico{
     
     public void run(){
         boolean sucesso = false;
-
+        
+        no = new Node(null); // passar inicio de um programa em C
+        arvore = new Tree(no);
+        
         token = nextToken();
         if (codigo())
-                if (matchTipo("EOF"))
-                        sucesso = success();
+                if (matchTipo("EOF")){
+                    sucesso = success();
+                    arvore.simpleWalk();
+                }
         if (!sucesso)
             erro("main");
     }
