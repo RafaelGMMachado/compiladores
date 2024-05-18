@@ -17,9 +17,6 @@ public class Main {
         String data = readFile("code.txt", StandardCharsets.UTF_8);
         Lexer lexer = new Lexer(data);
         tokens = lexer.getTokens();
-        for (Token token : tokens){
-            System.out.println(token);
-        }
 
         Parser parser = new Parser(tokens);
         parser.run();
