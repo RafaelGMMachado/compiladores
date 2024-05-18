@@ -33,12 +33,11 @@ public abstract class Sintatico {
      *
      * @param lexema palavra
      * @param newCode token.lexema
-     * @param node Nó atual da árvore
      * @return
      */
-    public static boolean matchLexema(String lexema, String newCode, Node node){
+    public static boolean matchLexema(String lexema, String newCode){
         if (token.getLexema().equals(lexema)){
-            node.addChild(newCode);
+            no.addChild(newCode);
             token = nextToken();
             return true;
         }
@@ -59,12 +58,11 @@ public abstract class Sintatico {
      *
      * @param tipo palavra
      * @param newCode token.lexema
-     * @param node Nó atual
      * @return
      */
-    public static boolean matchTipo(String tipo, String newCode, Node node){
+    public static boolean matchTipo(String tipo, String newCode){
         if (token.getTipo().equals(tipo)){
-            node.addChild(newCode);
+            no.addChild(newCode);
             token = nextToken();
             return true;
         }
