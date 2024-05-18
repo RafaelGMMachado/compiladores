@@ -1,6 +1,8 @@
 package Sintatico;
 
 import Lexico.Token;
+
+import java.io.IOException;
 import java.util.List;
 
 import Sintatico.AST.Node;
@@ -24,6 +26,12 @@ public class Parser extends Sintatico{
                 if (matchTipo("EOF")){
                     sucesso = success();
                     arvore.simpleWalk();
+                    try {
+                        arvore.createOutputFile();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
                 }
         if (!sucesso)
             erro("main");

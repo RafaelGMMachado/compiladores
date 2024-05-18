@@ -1,5 +1,9 @@
 package Sintatico.AST;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Tree {
 
     Node root;
@@ -44,4 +48,21 @@ public class Tree {
         System.out.println(node.exit);
     }
 
+    public void writeInFile(Node node, BufferedWriter file) throws IOException{
+        file.write(node.enter);
+        if (node.isLeaf())
+            file.write(" " + node.data + " ");
+        for (Node child: node.getChildren())
+            writeInFile(child, file);
+
+        file.write(node.exit);
+    }
+
+    public void createOutputFile() throws IOException{
+        BufferedWriter saida = new BufferedWriter(new FileWriter("output.c"));
+        
+        for (Node child: root.getChildren())
+            writeInFile(child, saida);
+        saida.close();
+    }
 }
