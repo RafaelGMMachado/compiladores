@@ -88,4 +88,8 @@ public abstract class Sintatico {
         }
         return false;
     }
+
+    public static boolean endCode(){
+        return matchLexema(";") && Parser.codigo();
+    }
 }

@@ -25,9 +25,7 @@ public class Expressoes  extends Sintatico{
     }
 
     public static boolean expressaoAritimetica(){
-        if (matchLexema(";") || matchLexema(")") || equalsOperadorLogico() || equalsOperadorConjuncao()) // follow
-            return true;
-        if (termo() && expressaoAritimetica2()){
+        if (fator() && expressaoAritimetica2()){
             return true;
         }
 
@@ -36,10 +34,13 @@ public class Expressoes  extends Sintatico{
     }
     
     public static boolean expressaoAritimetica2(){   // Validar, não entendi como o first follow funcionaria aqui, esse jeito parece funcionar
-        if ((matchLexema("-") || matchLexema("+")) && termo() && expressaoAritimetica()){
+        if (matchLexema("-") || matchLexema("+") || 
+            matchLexema("*") || matchLexema("/") );
+        if (lexemaEquals(")"))
             return true;
-        }
-        
+        if (endCode() || expressaoAritimetica())
+            return true;
+
         return true;
     }
  
@@ -54,25 +55,6 @@ public class Expressoes  extends Sintatico{
     
     public static boolean expressaoLogica2(){   // Validar, não entendi como o first follow funcionaria aqui, esse jeito parece funcionar
         if (operadorConjuncao() && expressaoLogica() && expressaoLogica2()){
-            return true;
-        }
-        
-        return true;
-    }
-
-    public static boolean termo(){
-        if (lexemaEquals("-") || lexemaEquals("+") || lexemaEquals("*") || lexemaEquals("/") || equalsOperadorLogico() || equalsOperadorConjuncao()) // ver se isso está certo
-         return true;
-        if (fator() && termo2()){
-            return true;
-        }
-
-        erro("termo");
-        return false;
-    }
-    
-    public static boolean termo2(){   // Validar, não entendi como o first follow funcionaria aqui, esse jeito parece funcionar
-        if ((matchLexema("*") || matchLexema("/")) && fator() && termo2()){
             return true;
         }
         

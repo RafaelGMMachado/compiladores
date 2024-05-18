@@ -8,6 +8,7 @@ import java.util.List;
 
 import Lexico.Token;
 import Lexico.Lexer;
+import Sintatico.Parser;
 
 public class Main {
     
@@ -19,6 +20,9 @@ public class Main {
         for (Token token : tokens){
             System.out.println(token);
         }
+
+        Parser parser = new Parser(tokens);
+        parser.run();
     }
 
     static String readFile(String path, Charset encoding) throws IOException {

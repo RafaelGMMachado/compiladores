@@ -34,6 +34,8 @@ public class Parser extends Sintatico{
             return true;
         else if (lexemaEquals("bebe") && Funcoes.scan())
             return true;
+        else if (Expressoes.expressaoAritimetica())
+            return true;
 
         erro("codigo");
         return false;
