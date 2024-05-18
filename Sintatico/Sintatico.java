@@ -90,6 +90,6 @@ public abstract class Sintatico {
     }
 
     public static boolean endCode(){
-        return matchLexema(";") && Parser.codigo();
+        return matchLexema(";") && ( lexemaEquals("}") || Parser.codigo());
     }
 }

@@ -46,7 +46,7 @@ public class Fluxo extends Sintatico {
     public static boolean else_statement(){ // colocar para poder ser nulo
         if (matchLexema("else"))
         {
-            if (matchLexema("{") && Parser.codigo() && matchLexema("}"))
+            if (matchLexema("{") && endCode())
             {
                 return true;
             }

@@ -1,6 +1,5 @@
 package Sintatico.GLCS;
 
-import Sintatico.Parser;
 import Sintatico.Sintatico;
 
 public class Variaveis  extends Sintatico{
@@ -9,7 +8,7 @@ public class Variaveis  extends Sintatico{
         if (matchTipoDado() && matchTipo("ID")){
             if (lexemaEquals("=") && atribuicao2())
                 return true;
-            else if (matchLexema(";") && ( lexemaEquals("}") || Parser.codigo() ))
+            else if (endCode())
                 return true;
         }
 
@@ -27,7 +26,7 @@ public class Variaveis  extends Sintatico{
 
     public static boolean atribuicao2(){
         if (matchLexema("=")){
-            if ((string() || expressaoAritimetica()) && matchLexema(";") && ( lexemaEquals("}") || Parser.codigo() ))
+            if ((string() || expressaoAritimetica()) && endCode())
                 return true;
         }
 
