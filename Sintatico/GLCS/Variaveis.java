@@ -26,7 +26,7 @@ public class Variaveis  extends Sintatico{
 
     public static boolean atribuicao2(){
         if (matchLexema("=")){
-            if ((string() || expressaoAritimetica()) && endCode())
+            if ((string() || Expressoes.expressaoAritimetica()) && endCode())
                 return true;
         }
 
@@ -68,13 +68,5 @@ public class Variaveis  extends Sintatico{
         }
     
         return false;
-    }
-
-    public static boolean expressaoAritimetica() {
-        while (!lexemaEquals(";")) {
-            token = nextToken();
-            continue;
-        }
-        return true;
     }
 }

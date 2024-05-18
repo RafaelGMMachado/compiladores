@@ -5,21 +5,21 @@ import Sintatico.Sintatico;
 
 public class Fluxo extends Sintatico {
 
-    public static boolean statement(){
-        if (lexemaEquals("if") && if_statement())
+    public static boolean fluxo(){
+        if (lexemaEquals("velho") && codigo_if())
             return true;
-        else if (lexemaEquals("while") && while_statement())
+        else if (lexemaEquals("amendoim") && codigo_while())
             return true;
-        else if (lexemaEquals("for") && for_statement())
+        else if (lexemaEquals("torresmo") && codigo_for())
             return true;
 
         return false;
     }
 
-    public static boolean if_statement(){
+    public static boolean codigo_if(){
         if (matchLexema("velho", "if") && matchLexema("(") && condicao() && matchLexema(")") && 
             matchLexema("{") && Parser.codigo() && matchLexema("}") &&
-            elif_statement() && else_statement() && ( lexemaEquals("}") || Parser.codigo() ))
+            codigo_elif() && codigo_else() && ( lexemaEquals("}") || Parser.codigo() ))
         {
             return true;
         }
@@ -28,11 +28,11 @@ public class Fluxo extends Sintatico {
         return false;
     }
 
-    public static boolean elif_statement(){ // colocar para poder ser nulo
+    public static boolean codigo_elif(){ // colocar para poder ser nulo
         if (matchLexema("velhoBarreiro", "elif")  )
         {
             if (matchLexema("(") && condicao() && matchLexema(")") && 
-                matchLexema("{") && Parser.codigo() && matchLexema("}") && elif_statement())
+                matchLexema("{") && Parser.codigo() && matchLexema("}") && codigo_elif() && ( lexemaEquals("}") || Parser.codigo() ))
             {
                 return true;
             }
@@ -43,10 +43,10 @@ public class Fluxo extends Sintatico {
         return true;
     }
 
-    public static boolean else_statement(){ // colocar para poder ser nulo
+    public static boolean codigo_else(){ // colocar para poder ser nulo
         if (matchLexema("barreiro", "else"))
         {
-            if (matchLexema("{") && endCode())
+            if (matchLexema("{") && Parser.codigo() && matchLexema("}") && ( lexemaEquals("}") || Parser.codigo() ))
             {
                 return true;
             }
@@ -57,7 +57,7 @@ public class Fluxo extends Sintatico {
         return true;
     }
 
-    public static boolean while_statement(){
+    public static boolean codigo_while(){
         if (matchLexema("amendoim", "while") && matchLexema("(") && condicao() && matchLexema(")") &&
             matchLexema("{") && Parser.codigo() && matchLexema("}") && ( lexemaEquals("}") || Parser.codigo() ))
         {
@@ -68,7 +68,7 @@ public class Fluxo extends Sintatico {
         return false;
     }
 
-    public static boolean for_statement(){
+    public static boolean codigo_for(){
         if (matchLexema("torresmo", "for") && matchLexema("(") && inicializa() && expressaoLogica() && matchLexema(";") && incremento() && matchLexema(")") &&
             matchLexema("{") && Parser.codigo() && matchLexema("}") && ( lexemaEquals("}") || Parser.codigo() ))
         {
@@ -83,18 +83,12 @@ public class Fluxo extends Sintatico {
         if (matchTipo("ID")){
             return true;
         }
-        else if (Variaveis.matchTipoDado() && matchTipo("ID") && matchLexema("=") && Variaveis.expressaoAritimetica() && matchLexema(";")){
+        else if (Variaveis.matchTipoDado() && matchTipo("ID") && matchLexema("=") && Expressoes.expressaoAritimetica() && matchLexema(";")){
             return true;
         }
 
         erro("inicializa");
         return false;
-    }
-
-    public static boolean code(){
-        while (!lexemaEquals("}"))
-            token = nextToken();
-        return true;
     }
 
     public static boolean expressaoLogica(){
@@ -104,9 +98,13 @@ public class Fluxo extends Sintatico {
     }
 
     public static boolean incremento(){
-        while (!lexemaEquals(")"))
-            token = nextToken();
-        return true;
+        if (matchTipo("ID") && matchLexema("+") && matchLexema("+") && op_logico())
+        {
+            return true;
+        }
+    
+        erro("condicao");
+        return false;
     }
     
     public static boolean condicao(){
@@ -116,16 +114,6 @@ public class Fluxo extends Sintatico {
         }
     
         erro("condicao");
-        return false;
-    }
-    
-    public static boolean expressao(){
-        if (matchTipo("ID") && matchLexema("=") && matchTipo("NUM"))
-        {
-            return true;
-        }
-    
-        erro("expressao");
         return false;
     }
     
