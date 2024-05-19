@@ -16,7 +16,7 @@ public class Funcoes extends Sintatico {
 
     public static boolean argumentoPrint(){
         if (matchLexema("\"")){
-            if (lexemaEquals("%") && matchLexema("%") && tipoScan() && matchLexema("\"") && matchLexema(",") && ( matchLexema("&") || true ) && matchTipo("ID")){
+            if (lexemaEquals("%") && matchLexema("%", false) && tipoScan() && matchLexema("\"") && matchLexema(",") && ( matchLexema("&", false) || true ) && matchTipo("ID")){
                 return true;
             }
             else{
@@ -41,7 +41,7 @@ public class Funcoes extends Sintatico {
     }
 
     public static boolean argumentoScan(){
-        if (matchLexema("\"") && matchLexema("%") && tipoScan() && matchLexema("\"") && matchLexema(",") && ( matchLexema("&") || true ) && matchTipo("ID")){
+        if (matchLexema("\"") && matchLexema("%", false) && tipoScan() && matchLexema("\"") && matchLexema(",") && ( matchLexema("&", false) || true ) && matchTipo("ID")){
             return true;
         }
 
@@ -50,7 +50,7 @@ public class Funcoes extends Sintatico {
     }
 
     public static boolean tipoScan(){
-        if (matchLexema("s") || matchLexema("d")){
+        if (matchLexema("s") || matchLexema("d") || matchLexema("f")){
             return true;
         }
 
