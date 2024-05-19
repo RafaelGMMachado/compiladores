@@ -34,8 +34,7 @@ public class Expressoes  extends Sintatico{
     }
     
     public static boolean expressaoAritimetica2(){   // Validar, não entendi como o first follow funcionaria aqui, esse jeito parece funcionar
-        if (matchLexema("-") || matchLexema("+") || 
-            matchLexema("*") || matchLexema("/") );
+        if (operadorMatematico());
         if (lexemaEquals(")"))
             return true;
         if (endCode() || expressaoAritimetica())
@@ -67,6 +66,15 @@ public class Expressoes  extends Sintatico{
         }
 
         erro("fator");
+        return false;
+    }
+
+    public static boolean operadorMatematico(){
+        if (matchLexema("-") || matchLexema("+") || matchLexema("*") || matchLexema("/") || matchLexema("**") || matchLexema("%"))
+        {
+            return true;
+        }
+    
         return false;
     }
 

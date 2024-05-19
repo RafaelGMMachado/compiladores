@@ -69,25 +69,13 @@ public class Fluxo extends Sintatico {
     }
 
     public static boolean codigo_for(){
-        if (matchTipo("RESERVADA_FOR", "for") && matchLexema("(") && inicializa() && expressaoLogica() && matchLexema(";") && incremento() && matchLexema(")") &&
+        if (matchTipo("RESERVADA_FOR", "for") && matchLexema("(") && matchTipo("ID") && matchLexema(";") && expressaoLogica() && matchLexema(";") && incremento() && matchLexema(")") &&
             matchLexema("{") && Parser.codigo() && matchLexema("}") && ( lexemaEquals("}") || Parser.codigo() ))
         {
             return true;
         }
 
         erro("For");
-        return false;
-    }
-
-    public static boolean inicializa(){
-        if (matchTipo("ID") && matchLexema(";")){
-            return true;
-        }
-        else if (Variaveis.matchTipoDado() && matchTipo("ID") && matchLexema("=") && Expressoes.expressaoAritimetica() && matchLexema(";")){
-            return true;
-        }
-
-        erro("inicializa");
         return false;
     }
 
@@ -117,22 +105,12 @@ public class Fluxo extends Sintatico {
     }
     
     public static boolean condicao(){
-        if ((Expressoes.fator() || Expressoes.expressaoAritimetica()) && operador() && Expressoes.expressaoAritimetica())
+        if ((Expressoes.fator() || Expressoes.expressaoAritimetica()) && Expressoes.operadorLogico() && Expressoes.expressaoAritimetica())
         {
             return true;
         }
     
         erro("condicao");
-        return false;
-    }
-    
-    public static boolean operador(){
-        if (matchLexema(">") || matchLexema("<") || matchLexema("==") || matchLexema(">=") || matchLexema("<="))
-        {
-            return true;
-        }
-    
-        erro("operador");
         return false;
     }
     
