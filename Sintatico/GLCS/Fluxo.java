@@ -80,7 +80,7 @@ public class Fluxo extends Sintatico {
     }
 
     public static boolean inicializa(){
-        if (matchTipo("ID")){
+        if (matchTipo("ID") && matchLexema(";")){
             return true;
         }
         else if (Variaveis.matchTipoDado() && matchTipo("ID") && matchLexema("=") && Expressoes.expressaoAritimetica() && matchLexema(";")){
@@ -98,13 +98,22 @@ public class Fluxo extends Sintatico {
     }
 
     public static boolean incremento(){
-        if (matchTipo("ID") && matchLexema("+") && matchLexema("+") && op_logico())
+        if (matchTipo("ID"))
         {
-            return true;
+            if (lexemaEquals("=") && matchLexema("=") && Expressoes.expressaoAritimetica()){
+                return true;
+            }
+            else if (somaSubtracao() && somaSubtracao()){
+                return true;
+            }
         }
     
-        erro("condicao");
+        erro("incremento");
         return false;
+    }
+
+    public static boolean somaSubtracao(){
+        return matchLexema("+") || matchLexema("-");
     }
     
     public static boolean condicao(){
