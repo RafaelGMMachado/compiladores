@@ -1,25 +1,35 @@
-latinha numero;
-latinha primo = 1;
+dose x;
+dose y;
+truco operacao;
+dose resultado;
 
-canta("Digite um numero");
-bebe("%d", &numero);
+canta("Calculadora");
+canta("");
 
-velho (numero <= 1){
-    primo = 0;
+canta("Primeiro numero");
+bebe("%f", &x);
+
+canta("Operacao");
+bebe("%s", operacao);
+
+canta("Segundo numero");
+bebe("%f", &y);
+
+velho (operacao == "teste"){
+    resultado = x + y;
 }
-barreiro {
-    latinha i = 2;
-    boateAzul (i; i <= (numero / 2); i++){
-        velho ((numero % i) == 0){
-            primo = 0;
-            saidera;
-        }
-    }
+velhoBarreiro (operacao == "-"){
+    resultado = x - y;
+}
+velhoBarreiro (operacao == "*"){
+    resultado = x * y;
+}
+velhoBarreiro (operacao == "/"){
+    resultado = x / y;
+}
+velhoBarreiro (operacao == "-"){
+    resultado = x - y;
 }
 
-velho (primo == 1){
-    canta("O numero e primo");
-}
-barreiro{
-    canta("O numero nao e primo");
-}
+canta("Resultado");
+canta("%f", resultado);

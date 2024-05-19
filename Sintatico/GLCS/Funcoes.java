@@ -50,7 +50,7 @@ public class Funcoes extends Sintatico {
     }
 
     public static boolean tipoScan(){
-        if (matchLexema("s", false) || matchLexema("d", false) || matchLexema("f", false)){
+        if (matchLexema("s", false) || matchLexema("d", false) || matchLexema("f", false) || matchLexema("lf", false)){
             return true;
         }
 

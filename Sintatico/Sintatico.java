@@ -90,6 +90,18 @@ public abstract class Sintatico {
         return false;
     }
 
+    public static boolean matchTipo(String tipo, boolean espaco){
+        if (token.getTipo().equals(tipo)){
+            Node node = no.addChild(tipo);
+            if (!espaco){
+                node.exit = "";
+            }
+            token = nextToken();
+            return true;
+        }
+        return false;
+    }
+
     public static boolean lexemaEquals(String lexema){
         if (token.getLexema().equals(lexema)){
             return true;

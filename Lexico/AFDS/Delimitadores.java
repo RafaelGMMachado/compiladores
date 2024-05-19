@@ -21,6 +21,12 @@ public class Delimitadores extends AFD{
             case '}':
                 code.next();
                 return new Token("RCHAVE", "}");
+            case '[':
+                code.next();
+                return new Token("LCOLCHETE", "[");
+            case ']':
+                code.next();
+                return new Token("RCOLCHETE", "]");
             case '=':
                 code.next();
 
