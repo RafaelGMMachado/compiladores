@@ -69,25 +69,13 @@ public class Fluxo extends Sintatico {
     }
 
     public static boolean codigo_for(){
-        if (matchTipo("RESERVADA_FOR", "for") && matchLexema("(") && inicializa() && expressaoLogica() && matchLexema(";") && incremento() && matchLexema(")") &&
+        if (matchTipo("RESERVADA_FOR", "for") && matchLexema("(") && matchTipo("ID") && matchLexema(";") && expressaoLogica() && matchLexema(";") && incremento() && matchLexema(")") &&
             matchLexema("{") && Parser.codigo() && matchLexema("}") && ( lexemaEquals("}") || Parser.codigo() ))
         {
             return true;
         }
 
         erro("For");
-        return false;
-    }
-
-    public static boolean inicializa(){
-        if (matchTipo("ID") && matchLexema(";")){
-            return true;
-        }
-        else if (Variaveis.matchTipoDado() && matchTipo("ID") && matchLexema("=") && Expressoes.expressaoAritimetica() && matchLexema(";")){
-            return true;
-        }
-
-        erro("inicializa");
         return false;
     }
 
