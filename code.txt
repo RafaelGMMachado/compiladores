@@ -1,26 +1,38 @@
-latinha a;
-latinha b;
-latinha c;
-dose d;
+dose x;
+dose y;
+truco operacao;
+dose resultado;
 
-canta("Programa Teste");
-canta("Digite A");
-bebe("%d", &a);
-canta("Digite B");
-bebe("%d", &b);
+canta("Calculadora");
+canta("");
 
-velho(a < b){
-    c = a + b;
+canta("Primeiro numero");
+bebe("%f", &x);
+
+canta("Operacao");
+bebe("%s", operacao);
+
+canta("Segundo numero");
+bebe("%f", &y);
+
+canta("x e igual a");
+canta("%f", x);
+
+velho (operacao == "teste"){
+    resultado = x + y;
 }
-barreiro{
-    c = a - b;
+velhoBarreiro (operacao == "-"){
+    resultado = x - y;
+}
+velhoBarreiro (operacao == "*"){
+    resultado = x * y;
+}
+velhoBarreiro (operacao == "/"){
+    resultado = x / y;
+}
+velhoBarreiro (operacao == "-"){
+    resultado = x - y;
 }
 
-canta("C e igual a");
-canta("%d", c);
-
-d = c / (a + b);
-
-canta("D e igual a");
-canta("%f", d);
-PT
+canta("Resultado");
+canta("%f", resultado);
