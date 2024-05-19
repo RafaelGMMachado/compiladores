@@ -1,8 +1,8 @@
 •	if -> velho
 •	else -> barreiro
 •	else if -> velhoBarreiro
-•	while -> amendoim
-•	for -> torresmo
+•	while -> evidencias
+•	for -> boateAzul
 •	short -> shot
 •	float -> dose
 •	int -> latinha

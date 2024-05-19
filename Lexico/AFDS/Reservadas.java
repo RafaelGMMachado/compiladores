@@ -13,11 +13,11 @@ public class Reservadas extends AFD{
     public Reservadas()
     {
         reservadas = new ArrayList<>();
-        reservadas.add(new Dicionario("while", "amendoim"));
-        reservadas.add(new Dicionario("for", "torresmo"));
+        reservadas.add(new Dicionario("while", "evidencias"));
+        reservadas.add(new Dicionario("for", "boateAzul"));
         reservadas.add(new Dicionario("if", "velho"));
         reservadas.add(new Dicionario("else", "barreiro"));
-        reservadas.add(new Dicionario("else if", "velhoBarreiro"));
+        reservadas.add(new Dicionario("elif", "velhoBarreiro"));
         reservadas.add(new Dicionario("scanf", "bebe"));
         reservadas.add(new Dicionario("printf", "canta"));
         reservadas.add(new Dicionario("END", "PT"));
