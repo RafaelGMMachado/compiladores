@@ -17,10 +17,10 @@ barreiro{
 }
 
 canta("C e igual a");
-canta(c);
+canta("%d", c);
 
 d = c / (a + b);
 
 canta("D e igual a");
-canta(d);
+canta("%f", d);
 PT
