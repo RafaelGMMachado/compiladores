@@ -35,7 +35,7 @@ public class Variaveis  extends Sintatico{
     }
 
     public static boolean matchTipoDado(){
-        if (matchTipo("RESERVADA_INT", "int") || matchTipo("RESERVADA_FLOAT", "float") || matchTipo("RESERVADA_DOUBLE", "double") || matchTipo("RESERVADA_SHORT", "short"))
+        if (matchTipo("RESERVADA_INT", "int") || matchTipo("RESERVADA_FLOAT", "float") || matchTipo("RESERVADA_DOUBLE", "double") || matchTipo("RESERVADA_STRING", "string"))
         {
             return true;
         }
@@ -44,7 +44,7 @@ public class Variaveis  extends Sintatico{
     }
 
     public static boolean equalsTipoDado(){
-        if (tipoEquals("RESERVADA_INT") || tipoEquals("RESERVADA_FLOAT") || tipoEquals("RESERVADA_DOUBLE") || tipoEquals("RESERVADA_SHORT"))
+        if (tipoEquals("RESERVADA_INT") || tipoEquals("RESERVADA_FLOAT") || tipoEquals("RESERVADA_DOUBLE") || tipoEquals("RESERVADA_STRING"))
         {
             return true;
         }
