@@ -101,16 +101,26 @@ public class Fluxo extends Sintatico {
     }
 
     public static boolean somaSubtracao(){
-        return matchLexema("+") || matchLexema("-");
+        return matchLexema("+", false) || matchLexema("-", false);
     }
     
     public static boolean condicao(){
-        if ((Expressoes.fator() || Expressoes.expressaoAritimetica()) && Expressoes.operadorLogico() && Expressoes.expressaoAritimetica())
+        if (termoCondicao() && Expressoes.operadorLogico() && termoCondicao())
         {
             return true;
         }
     
         erro("condicao");
+        return false;
+    }
+
+    public static boolean termoCondicao(){
+        if (Variaveis.string() || Expressoes.fator() || Expressoes.expressaoAritimetica())
+        {
+            return true;
+        }
+    
+        erro("termoCondicao");
         return false;
     }
     
