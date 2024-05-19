@@ -12,6 +12,8 @@ public class Fluxo extends Sintatico {
             return true;
         else if (tipoEquals("RESERVADA_FOR") && codigo_for())
             return true;
+        else if (matchTipo("RESERVADA_BREAK") && endCode())
+            return true;
 
         return false;
     }
