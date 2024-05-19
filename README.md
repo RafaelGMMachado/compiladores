@@ -4,12 +4,13 @@
 •	while -> amendoim
 •	for -> torresmo
 •	return -> pitu
-•	break -> ?
+•	break -> ressaca
 •	short -> shot
 •	float -> dose
 •	int -> latinha
 •	void -> vodka
 •	char -> calabresa
+•	string -> truco
 •	const -> combo
 •	END -> PT
 
