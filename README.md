@@ -1,16 +1,12 @@
 •	if -> velho
 •	else -> barreiro
 •	else if -> velhoBarreiro
-•	while -> amendoim
-•	for -> torresmo
-•	return -> pitu
-•	break -> ?
+•	while -> evidencias
+•	for -> boateAzul
 •	short -> shot
 •	float -> dose
 •	int -> latinha
-•	void -> vodka
-•	char -> calabresa
-•	const -> combo
+•	string -> truco
 •	END -> PT
 
 •	scanf -> bebe
