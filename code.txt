@@ -1,3 +1,5 @@
-bebe(teste);
-
-canta();
+latinha i = 0;
+amendoim ( i < 10 ){
+    canta ("FOII");
+}
+PT
