@@ -21,6 +21,7 @@ public class Conditionals extends AFD{
         reservadas.add(new Dicionario("default", "defeito"));
         reservadas.add(new Dicionario("break", "bebado"));
         reservadas.add(new Dicionario("goto", "gotoso"));
+        reservadas.add(new Dicionario("END", "END"));
     }
 
     @Override

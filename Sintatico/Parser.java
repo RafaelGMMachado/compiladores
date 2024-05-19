@@ -37,8 +37,9 @@ public class Parser extends Sintatico{
     }
 
     public static boolean codigo(){
-        if (tipoEquals("EOF"))
+        if (tipoEquals("EOF") || lexemaEquals("END"))
             return true;
+        
         else if (Fluxo.fluxo())
             return true;
         else if (Variaveis.equalsTipoDado() && Variaveis.declara())
