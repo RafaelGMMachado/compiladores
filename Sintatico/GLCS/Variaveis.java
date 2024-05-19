@@ -62,9 +62,12 @@ public class Variaveis  extends Sintatico{
     }
 
     public static boolean string(){
-        if (matchLexema("\"") && matchTipo("ID")  && matchLexema("\""))
+        if (matchLexema("\""))
         {
-            return true;
+            while (matchTipo("ID")){
+                continue;
+            }
+            return matchLexema("\"");
         }
     
         return false;

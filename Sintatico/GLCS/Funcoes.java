@@ -6,11 +6,28 @@ import Sintatico.Sintatico;
 public class Funcoes extends Sintatico {
 
     public static boolean print(){
-        if (matchTipo("RESERVADA_PRINTF", "printf") && matchLexema("(") && ( matchTipo("ID") || Variaveis.string() ) && matchLexema(")") && endCode()){
+        if (matchTipo("RESERVADA_PRINTF", "printf") && matchLexema("(") && ( matchTipo("ID") || argumentoPrint() ) && matchLexema(")") && endCode()){
             return true;
         }
 
         erro("printf");
+        return false;
+    }
+
+    public static boolean argumentoPrint(){
+        if (matchLexema("\"")){
+            if (lexemaEquals("%") && matchLexema("%") && tipoScan() && matchLexema("\"") && matchLexema(",") && ( matchLexema("&") || true ) && matchTipo("ID")){
+                return true;
+            }
+            else{
+                while (matchTipo("ID")){
+                    continue;
+                }
+                return matchLexema("\"");
+            }
+        }
+
+        erro("argumentoPrint");
         return false;
     }
 
