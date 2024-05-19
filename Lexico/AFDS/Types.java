@@ -12,10 +12,9 @@ public class Types extends AFD{
     public Token evaluate(CharacterIterator code){
         List<Dicionario> reservadas = new ArrayList<>();
 
-        reservadas.add(new Dicionario("double", "doseDupla"));
         reservadas.add(new Dicionario("float", "dose"));
-        reservadas.add(new Dicionario("short", "shot"));
         reservadas.add(new Dicionario("int", "latinha"));
+        reservadas.add(new Dicionario("string", "truco"));
 
         int pos = code.getIndex();
         for (Dicionario reservada : reservadas){

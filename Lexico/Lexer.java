@@ -10,13 +10,10 @@ import Lexico.Token;
 import Lexico.AFDS.Comentario;
 import Lexico.AFDS.Delimitadores;
 import Lexico.AFDS.ID;
-import Lexico.AFDS.IOs;
-import Lexico.AFDS.MathOperator;
+import Lexico.AFDS.Reservadas;
+import Lexico.AFDS.Operadores;
 import Lexico.AFDS.Number;
 import Lexico.AFDS.Types;
-import Lexico.AFDS.Relacao;
-import Lexico.AFDS.Conditionals;
-import Lexico.AFDS.Repetitions;
 import Lexico.AFDS.Conjuncao;
 
 public class Lexer {
@@ -34,12 +31,9 @@ public class Lexer {
         afds.add(new Comentario());
         afds.add(new Delimitadores());
         afds.add(new Conjuncao());
-        afds.add(new Conditionals());
-        afds.add(new Repetitions());
-        afds.add(new IOs());
+        afds.add(new Reservadas());
         afds.add(new Types());
-        afds.add(new MathOperator());
-        afds.add(new Relacao());
+        afds.add(new Operadores());
         afds.add(new Number());
         afds.add(new ID());
     }
