@@ -53,6 +53,18 @@ public abstract class Sintatico {
         return false;
     }
 
+    public static boolean matchLexema(String lexema, boolean espaco){
+        if (token.getLexema().equals(lexema)){
+            Node node = no.addChild(lexema);
+            if (!espaco){
+                node.exit = "";
+            }
+            token = nextToken();
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Refatoração do método matchTipo para construção da árvore final
      *
