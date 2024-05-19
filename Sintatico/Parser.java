@@ -18,18 +18,17 @@ public class Parser extends Sintatico{
     public void run(){
         boolean sucesso = false;
         
-        no = new Node(null); // passar inicio de um programa em C
+        no = new Node("#include <stdio.h>\n\nint main(){\n"); // passar inicio de um programa em C
         arvore = new Tree(no);
         
         token = nextToken();
         if (codigo())
-                if (matchTipo("EOF")){
+                if (matchTipo("EOF", "\nreturn 0;\n}")){
                     sucesso = success();
                     arvore.simpleWalk();
                     try {
                         arvore.createOutputFile();
                     } catch (IOException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }

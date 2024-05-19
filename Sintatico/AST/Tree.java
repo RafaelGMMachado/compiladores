@@ -61,6 +61,7 @@ public class Tree {
     public void createOutputFile() throws IOException{
         BufferedWriter saida = new BufferedWriter(new FileWriter("output.c"));
         
+        saida.write(root.data);
         for (Node child: root.getChildren())
             writeInFile(child, saida);
         saida.close();
