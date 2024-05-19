@@ -93,6 +93,6 @@ public abstract class Sintatico {
     }
 
     public static boolean endCode(){
-        return matchLexema(";") && ( lexemaEquals("}") || Parser.codigo()) || matchLexema("END", "");
+        return matchLexema(";") && ( lexemaEquals("}") || Parser.codigo()) || matchTipo("RESERVADA_END", "");
     }
 }

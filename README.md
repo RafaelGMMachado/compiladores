@@ -4,13 +4,14 @@
 •	while -> amendoim
 •	for -> torresmo
 •	return -> pitu
-•	break -> PT
+•	break -> ?
 •	short -> shot
 •	float -> dose
 •	int -> latinha
 •	void -> vodka
 •	char -> calabresa
 •	const -> combo
-•	
+•	END -> PT
+
 •	scanf -> bebe
 •	printf -> canta

@@ -25,7 +25,6 @@ public class Parser extends Sintatico{
         if (codigo())
                 if (matchTipo("EOF", "\nreturn 0;\n}")){
                     sucesso = success();
-                    arvore.simpleWalk();
                     try {
                         arvore.createOutputFile();
                     } catch (IOException e) {
@@ -37,7 +36,7 @@ public class Parser extends Sintatico{
     }
 
     public static boolean codigo(){
-        if (tipoEquals("EOF") || lexemaEquals("END"))
+        if (tipoEquals("EOF") || tipoEquals("RESERVADA_END"))
             return true;
         
         else if (Fluxo.fluxo())
