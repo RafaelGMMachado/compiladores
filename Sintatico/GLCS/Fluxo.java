@@ -117,7 +117,7 @@ public class Fluxo extends Sintatico {
     }
     
     public static boolean condicao(){
-        if (matchTipo("ID") && operador() && matchTipo("NUM") && op_logico())
+        if ((Expressoes.fator() || Expressoes.expressaoAritimetica()) && operador() && Expressoes.expressaoAritimetica())
         {
             return true;
         }
@@ -136,17 +136,4 @@ public class Fluxo extends Sintatico {
         return false;
     }
     
-    public static boolean op_logico(){
-        if (matchLexema("&&") || matchLexema("||"))
-        {
-            if (condicao())
-            {
-                return true;
-            }
-            erro("op_logico");
-            return false;
-        }
-
-        return true;
-    }
 }
