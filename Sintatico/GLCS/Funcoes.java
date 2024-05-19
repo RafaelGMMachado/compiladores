@@ -6,20 +6,20 @@ import Sintatico.Sintatico;
 public class Funcoes extends Sintatico {
 
     public static boolean print(){
-        if (matchLexema("canta") && matchLexema("(") && ( matchTipo("ID") || Variaveis.string() ) && matchLexema(")") && endCode()){
+        if (matchLexema("canta", "printf") && matchLexema("(") && ( matchTipo("ID") || Variaveis.string() ) && matchLexema(")") && endCode()){
             return true;
         }
 
-        erro("print");
+        erro("printf");
         return false;
     }
 
     public static boolean scan(){
-        if (matchLexema("bebe") && matchLexema("(") && argumentoScan() && matchLexema(")") && matchLexema(";") && ( lexemaEquals("}") || Parser.codigo() )){
+        if (matchLexema("bebe", "scanf") && matchLexema("(") && argumentoScan() && matchLexema(")") && matchLexema(";") && ( lexemaEquals("}") || Parser.codigo() )){
             return true;
         }
 
-        erro("scan");
+        erro("scanf");
         return false;
     }
 
