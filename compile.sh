@@ -4,6 +4,8 @@ Main()
 	javac *.java
 	java Main
 	astyle --quiet output.c
+	gcc output.c
+	./a.out
 }
 
 #---------------------------- EXECUÇÃO --------------------------------

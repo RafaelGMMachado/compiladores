@@ -12,7 +12,7 @@ public class Fluxo extends Sintatico {
             return true;
         else if (tipoEquals("RESERVADA_FOR") && codigo_for())
             return true;
-        else if (matchTipo("RESERVADA_BREAK") && endCode())
+        else if (matchTipo("RESERVADA_BREAK", "break") && endCode())
             return true;
 
         return false;
@@ -71,7 +71,7 @@ public class Fluxo extends Sintatico {
     }
 
     public static boolean codigo_for(){
-        if (matchTipo("RESERVADA_FOR", "for") && matchLexema("(") && matchTipo("ID") && matchLexema(";") && expressaoLogica() && matchLexema(";") && incremento() && matchLexema(")") &&
+        if (matchTipo("RESERVADA_FOR", "for") && matchLexema("(") && matchTipo("ID") && matchLexema(";") && condicao() && matchLexema(";") && incremento() && matchLexema(")") &&
             matchLexema("{") && Parser.codigo() && matchLexema("}") && ( lexemaEquals("}") || Parser.codigo() ))
         {
             return true;
@@ -79,12 +79,6 @@ public class Fluxo extends Sintatico {
 
         erro("For");
         return false;
-    }
-
-    public static boolean expressaoLogica(){
-        while (!lexemaEquals(";"))
-            token = nextToken();
-        return true;
     }
 
     public static boolean incremento(){
