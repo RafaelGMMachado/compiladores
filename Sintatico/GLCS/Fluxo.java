@@ -6,18 +6,18 @@ import Sintatico.Sintatico;
 public class Fluxo extends Sintatico {
 
     public static boolean fluxo(){
-        if (lexemaEquals("velho") && codigo_if())
+        if (tipoEquals("RESERVADA_IF") && codigo_if())
             return true;
-        else if (lexemaEquals("amendoim") && codigo_while())
+        else if (tipoEquals("RESERVADA_WHILE") && codigo_while())
             return true;
-        else if (lexemaEquals("torresmo") && codigo_for())
+        else if (tipoEquals("RESERVADA_FOR") && codigo_for())
             return true;
 
         return false;
     }
 
     public static boolean codigo_if(){
-        if (matchLexema("velho", "if") && matchLexema("(") && condicao() && matchLexema(")") && 
+        if (matchTipo("RESERVADA_IF", "if") && matchLexema("(") && condicao() && matchLexema(")") && 
             matchLexema("{") && Parser.codigo() && matchLexema("}") &&
             codigo_elif() && codigo_else() && ( lexemaEquals("}") || Parser.codigo() ))
         {
@@ -29,7 +29,7 @@ public class Fluxo extends Sintatico {
     }
 
     public static boolean codigo_elif(){ // colocar para poder ser nulo
-        if (matchLexema("velhoBarreiro", "elif")  )
+        if (matchTipo("RESERVADA_ELIF", "else if")  )
         {
             if (matchLexema("(") && condicao() && matchLexema(")") && 
                 matchLexema("{") && Parser.codigo() && matchLexema("}") && codigo_elif() && ( lexemaEquals("}") || Parser.codigo() ))
@@ -44,7 +44,7 @@ public class Fluxo extends Sintatico {
     }
 
     public static boolean codigo_else(){ // colocar para poder ser nulo
-        if (matchLexema("barreiro", "else"))
+        if (matchTipo("RESERVADA_ELSE", "else"))
         {
             if (matchLexema("{") && Parser.codigo() && matchLexema("}") && ( lexemaEquals("}") || Parser.codigo() ))
             {
@@ -58,7 +58,7 @@ public class Fluxo extends Sintatico {
     }
 
     public static boolean codigo_while(){
-        if (matchLexema("amendoim", "while") && matchLexema("(") && condicao() && matchLexema(")") &&
+        if (matchTipo("RESERVADA_WHILE", "while") && matchLexema("(") && condicao() && matchLexema(")") &&
             matchLexema("{") && Parser.codigo() && matchLexema("}") && ( lexemaEquals("}") || Parser.codigo() ))
         {
             return true;
@@ -69,7 +69,7 @@ public class Fluxo extends Sintatico {
     }
 
     public static boolean codigo_for(){
-        if (matchLexema("torresmo", "for") && matchLexema("(") && inicializa() && expressaoLogica() && matchLexema(";") && incremento() && matchLexema(")") &&
+        if (matchTipo("RESERVADA_FOR", "for") && matchLexema("(") && inicializa() && expressaoLogica() && matchLexema(";") && incremento() && matchLexema(")") &&
             matchLexema("{") && Parser.codigo() && matchLexema("}") && ( lexemaEquals("}") || Parser.codigo() ))
         {
             return true;
