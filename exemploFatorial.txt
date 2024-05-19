@@ -1,13 +1,13 @@
 latinha numero;
-latinha fatorial;
+latinha fatorial = 1;
 
 canta("Digite um numero");
-bebe("%d", numero);
+bebe("%d", &numero);
 
 latinha i = 1;
 boateAzul (i; i <= numero; i++){
-    fatorial = fatorial*1;
+    fatorial = fatorial*i;
 }
 
 canta("O fatorial do numero é");
-canta("%s", fatorial);
+canta("%d", fatorial);
