@@ -51,7 +51,7 @@ public class Tree {
     public void writeInFile(Node node, BufferedWriter file) throws IOException{
         file.write(node.enter);
         if (node.isLeaf())
-            file.write(" " + node.data + " ");
+            file.write(node.data + " ");
         for (Node child: node.getChildren())
             writeInFile(child, file);
 
