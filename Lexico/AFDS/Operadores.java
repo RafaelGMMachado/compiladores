@@ -48,6 +48,15 @@ public class Operadores extends AFD{
                 }
 
                 else return new Token("RELACAO_MAIOR", ">");
+            case '!':
+                code.next();
+                
+                if (code.current() == '=') {
+                    code.next();
+                    return new Token("RELACAO_DIFERENTE", "!=");
+                }
+
+                else return new Token("NEGACAO", "!");
 
             default:
                 return null;
