@@ -23,4 +23,3 @@ d = c / (a + b);
 
 canta("D e igual a");
 canta("%f", d);
-PT
