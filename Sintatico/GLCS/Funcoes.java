@@ -6,11 +6,28 @@ import Sintatico.Sintatico;
 public class Funcoes extends Sintatico {
 
     public static boolean print(){
-        if (matchTipo("RESERVADA_PRINTF", "printf") && matchLexema("(") && ( matchTipo("ID") || Variaveis.string() ) && matchLexema(")") && endCode()){
+        if (matchTipo("RESERVADA_PRINTF", "printf") && matchLexema("(") && ( matchTipo("ID") || argumentoPrint() ) && matchLexema(")") && endCode()){
             return true;
         }
 
         erro("printf");
+        return false;
+    }
+
+    public static boolean argumentoPrint(){
+        if (matchLexema("\"", false)){
+            if (lexemaEquals("%") && matchLexema("%", false) && tipoScan() && matchLexema("\"") && matchLexema(",") && ( matchLexema("&", false) || true ) && matchTipo("ID")){
+                return true;
+            }
+            else{
+                while (matchTipo("ID")){
+                    continue;
+                }
+                return matchLexema("\"");
+            }
+        }
+
+        erro("argumentoPrint");
         return false;
     }
 
@@ -24,7 +41,7 @@ public class Funcoes extends Sintatico {
     }
 
     public static boolean argumentoScan(){
-        if (matchLexema("\"") && matchLexema("%") && tipoScan() && matchLexema("\"") && matchLexema(",") && ( matchLexema("&") || true ) && matchTipo("ID")){
+        if (matchLexema("\"", false) && matchLexema("%", false) && tipoScan() && matchLexema("\"") && matchLexema(",") && ( matchLexema("&", false) || true ) && matchTipo("ID")){
             return true;
         }
 
@@ -33,7 +50,7 @@ public class Funcoes extends Sintatico {
     }
 
     public static boolean tipoScan(){
-        if (matchLexema("s") || matchLexema("d")){
+        if (matchLexema("s", false) || matchLexema("d", false) || matchLexema("f", false) || matchLexema("lf", false)){
             return true;
         }
 

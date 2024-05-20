@@ -14,7 +14,7 @@ public class Node {
         this.data = data;
         children = new ArrayList<>();
         enter = "";
-        exit = "";
+        exit = " ";
     }
 
     public void addChild(Node child){
