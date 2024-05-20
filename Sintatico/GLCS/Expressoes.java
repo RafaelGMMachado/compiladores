@@ -70,7 +70,7 @@ public class Expressoes  extends Sintatico{
     }
 
     public static boolean operadorMatematico(){
-        if (matchLexema("-") || matchLexema("+") || matchLexema("*") || matchLexema("/") || matchLexema("**") || matchLexema("%"))
+        if (matchLexema("-", false) || matchLexema("+", false) || matchLexema("*", false) || matchLexema("/", false) || matchLexema("**", false) || matchLexema("%", false))
         {
             return true;
         }

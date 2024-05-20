@@ -15,6 +15,7 @@ public class Types extends AFD{
         reservadas.add(new Dicionario("float", "dose"));
         reservadas.add(new Dicionario("int", "latinha"));
         reservadas.add(new Dicionario("string", "truco"));
+        reservadas.add(new Dicionario("double", "shot"));
 
         int pos = code.getIndex();
         for (Dicionario reservada : reservadas){

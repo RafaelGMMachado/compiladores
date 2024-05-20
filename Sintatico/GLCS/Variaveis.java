@@ -5,8 +5,8 @@ import Sintatico.Sintatico;
 public class Variaveis  extends Sintatico{
     
     public static boolean declara(){
-        if (matchTipo("RESERVADA_STRING", "char")){
-            
+        if (matchTipo("RESERVADA_STRING", "char") && matchTipo("ID", token.getLexema() + "[200]") && endCode()){
+            return true;
         }
         if (matchTipoDado() && matchTipo("ID")){
             if (lexemaEquals("=") && atribuicao2())
@@ -38,7 +38,7 @@ public class Variaveis  extends Sintatico{
     }
 
     public static boolean matchTipoDado(){
-        if (matchTipo("RESERVADA_INT", "int") || matchTipo("RESERVADA_FLOAT", "float") || matchTipo("RESERVADA_DOUBLE", "double") || matchTipo("RESERVADA_STRING", "string"))
+        if (matchTipo("RESERVADA_INT", "int") || matchTipo("RESERVADA_FLOAT", "float") || matchTipo("RESERVADA_DOUBLE", "double"))
         {
             return true;
         }
@@ -65,7 +65,7 @@ public class Variaveis  extends Sintatico{
     }
 
     public static boolean string(){
-        if (matchLexema("\""))
+        if (matchLexema("\"", false))
         {
             while (matchTipo("ID") || Expressoes.operadorMatematico()){
                 continue;
