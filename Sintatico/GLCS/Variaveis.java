@@ -5,6 +5,9 @@ import Sintatico.Sintatico;
 public class Variaveis  extends Sintatico{
     
     public static boolean declara(){
+        if (matchTipo("RESERVADA_STRING", "char")){
+            
+        }
         if (matchTipoDado() && matchTipo("ID")){
             if (lexemaEquals("=") && atribuicao2())
                 return true;
