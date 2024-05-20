@@ -67,7 +67,7 @@ public class Variaveis  extends Sintatico{
     public static boolean string(){
         if (matchLexema("\"", false))
         {
-            while (matchTipo("ID", false) || Expressoes.operadorMatematico()){
+            while (matchTipo("ID") || Expressoes.operadorMatematico()){
                 continue;
             }
             return matchLexema("\"");
