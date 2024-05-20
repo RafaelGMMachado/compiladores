@@ -3,7 +3,7 @@
 •	else if -> velhoBarreiro
 •	while -> evidencias
 •	for -> boateAzul
-•	short -> shot
+•	double -> shot
 •	float -> dose
 •	int -> latinha
 •	string -> truco

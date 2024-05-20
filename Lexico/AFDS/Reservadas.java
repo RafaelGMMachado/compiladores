@@ -21,6 +21,7 @@ public class Reservadas extends AFD{
         reservadas.add(new Dicionario("scanf", "bebe"));
         reservadas.add(new Dicionario("printf", "canta"));
         reservadas.add(new Dicionario("END", "PT"));
+        reservadas.add(new Dicionario("break", "saidera"));
     }
 
     @Override
@@ -49,6 +50,8 @@ public class Reservadas extends AFD{
         return code.current() == ' ' ||
             code.current() == '\n'   ||
             code.current() == '('    ||
+            code.current() == '{'    ||
+            code.current() == ';'    ||
             code.current() == CharacterIterator.DONE;
     }
 }

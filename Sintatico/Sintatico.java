@@ -53,6 +53,18 @@ public abstract class Sintatico {
         return false;
     }
 
+    public static boolean matchLexema(String lexema, boolean espaco){
+        if (token.getLexema().equals(lexema)){
+            Node node = no.addChild(lexema);
+            if (!espaco){
+                node.exit = "";
+            }
+            token = nextToken();
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Refatoração do método matchTipo para construção da árvore final
      *
@@ -78,6 +90,18 @@ public abstract class Sintatico {
         return false;
     }
 
+    public static boolean matchTipo(String tipo, boolean espaco){
+        if (token.getTipo().equals(tipo)){
+            Node node = no.addChild(tipo);
+            if (!espaco){
+                node.exit = "";
+            }
+            token = nextToken();
+            return true;
+        }
+        return false;
+    }
+
     public static boolean lexemaEquals(String lexema){
         if (token.getLexema().equals(lexema)){
             return true;
@@ -93,6 +117,6 @@ public abstract class Sintatico {
     }
 
     public static boolean endCode(){
-        return matchLexema(";") && ( lexemaEquals("}") || Parser.codigo()) || matchTipo("RESERVADA_END", "") || lexemaEquals("}");
+        return matchLexema(";") && ( lexemaEquals("}") || Parser.codigo()) || matchTipo("RESERVADA_END", "") || lexemaEquals("}") || tipoEquals("EOF");
     }
 }

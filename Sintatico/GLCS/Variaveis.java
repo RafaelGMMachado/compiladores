@@ -5,6 +5,9 @@ import Sintatico.Sintatico;
 public class Variaveis  extends Sintatico{
     
     public static boolean declara(){
+        if (matchTipo("RESERVADA_STRING", "char") && matchTipo("ID", token.getLexema() + "[200]") && endCode()){
+            return true;
+        }
         if (matchTipoDado() && matchTipo("ID")){
             if (lexemaEquals("=") && atribuicao2())
                 return true;
@@ -35,7 +38,7 @@ public class Variaveis  extends Sintatico{
     }
 
     public static boolean matchTipoDado(){
-        if (matchTipo("RESERVADA_INT", "int") || matchTipo("RESERVADA_FLOAT", "float") || matchTipo("RESERVADA_DOUBLE", "double") || matchTipo("RESERVADA_SHORT", "short"))
+        if (matchTipo("RESERVADA_INT", "int") || matchTipo("RESERVADA_FLOAT", "float") || matchTipo("RESERVADA_DOUBLE", "double"))
         {
             return true;
         }
@@ -44,7 +47,7 @@ public class Variaveis  extends Sintatico{
     }
 
     public static boolean equalsTipoDado(){
-        if (tipoEquals("RESERVADA_INT") || tipoEquals("RESERVADA_FLOAT") || tipoEquals("RESERVADA_DOUBLE") || tipoEquals("RESERVADA_SHORT"))
+        if (tipoEquals("RESERVADA_INT") || tipoEquals("RESERVADA_FLOAT") || tipoEquals("RESERVADA_DOUBLE") || tipoEquals("RESERVADA_STRING"))
         {
             return true;
         }
@@ -62,9 +65,12 @@ public class Variaveis  extends Sintatico{
     }
 
     public static boolean string(){
-        if (matchLexema("\"") && matchTipo("ID")  && matchLexema("\""))
+        if (matchLexema("\"", false))
         {
-            return true;
+            while (matchTipo("ID") || Expressoes.operadorMatematico()){
+                continue;
+            }
+            return matchLexema("\"");
         }
     
         return false;
