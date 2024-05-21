@@ -6,7 +6,7 @@ import Sintatico.Sintatico;
 public class Funcoes extends Sintatico {
 
     public static boolean print(){
-        if (matchTipo("RESERVADA_PRINTF", "printf") && matchLexema("(") && ( matchTipo("ID") || argumentoPrint() ) && matchLexema(")") && endCode()){
+        if (matchTipo("RESERVADA_PRINTF", "printf") && matchLexema("(") && ( matchTipo("STRING", correctPrintString()) || argumentoPrintScan() ) && matchLexema(")") && endCode()){
             return true;
         }
 
@@ -14,25 +14,8 @@ public class Funcoes extends Sintatico {
         return false;
     }
 
-    public static boolean argumentoPrint(){
-        if (matchLexema("\"", false)){
-            if (lexemaEquals("%") && matchLexema("%", false) && tipoScan() && matchLexema("\"") && matchLexema(",") && ( matchLexema("&", false) || true ) && matchTipo("ID")){
-                return true;
-            }
-            else{
-                while (matchTipo("ID")){
-                    continue;
-                }
-                return matchLexema("\"");
-            }
-        }
-
-        erro("argumentoPrint");
-        return false;
-    }
-
     public static boolean scan(){
-        if (matchTipo("RESERVADA_SCANF", "scanf") && matchLexema("(") && argumentoScan() && matchLexema(")") && matchLexema(";") && ( lexemaEquals("}") || Parser.codigo() )){
+        if (matchTipo("RESERVADA_SCANF", "scanf") && matchLexema("(") && argumentoPrintScan() && matchLexema(")") && matchLexema(";") && ( lexemaEquals("}") || Parser.codigo() )){
             return true;
         }
 
@@ -40,12 +23,12 @@ public class Funcoes extends Sintatico {
         return false;
     }
 
-    public static boolean argumentoScan(){
+    public static boolean argumentoPrintScan(){
         if (matchLexema("\"", false) && matchLexema("%", false) && tipoScan() && matchLexema("\"") && matchLexema(",") && ( matchLexema("&", false) || true ) && matchTipo("ID")){
             return true;
         }
 
-        erro("argumentoScan");
+        erro("argumentoPrintScan");
         return false;
     }
 
@@ -56,5 +39,9 @@ public class Funcoes extends Sintatico {
 
         erro("tipoScan");
         return false;
+    }
+
+    public static String correctPrintString(){
+        return token.getLexema().substring(0, token.getLexema().length() - 1) + "\\n\"";
     }
 }

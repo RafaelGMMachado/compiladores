@@ -1,15 +1,6 @@
 #include <stdio.h>
 
-int main() {
-    int numero ;
-    int fatorial = 1 ;
-    printf ( "Digite um numero " ) ;
-    scanf ( "%d", &numero ) ;
-    int i = 1 ;
-    for ( i ; i <= numero ; i ++) {
-        fatorial = fatorial *i ;
-    }
-    printf ( "O fatorial do numero é " ) ;
-    printf ( "%d", fatorial ) ;
-    return 0;
-}
+int main(){
+int a ; int b ; int c ; float d ; printf ( "Programa Teste\n" ) ; printf ( "Digite A\n" ) ; scanf ( "%d" , &a ) ; printf ( "Digite B\n" ) ; scanf ( "%d" , &b ) ; if ( a < b ) { c = a +b ; } else { c = a -b ; } printf ( "C e igual a\n" ) ; printf ( "%d" , c ) ; d = c /( a +b ) ; printf ( "D e igual a\n" ) ; printf ( "%f" , d ) ; 
+return 0;
+} 

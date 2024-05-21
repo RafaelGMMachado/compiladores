@@ -8,6 +8,7 @@ import Lexico.AFDS.AFD;
 import Lexico.Token;
 
 import Lexico.AFDS.Comentario;
+import Lexico.AFDS.TypeString;
 import Lexico.AFDS.Delimitadores;
 import Lexico.AFDS.ID;
 import Lexico.AFDS.Reservadas;
@@ -29,6 +30,7 @@ public class Lexer {
         this.code = new StringCharacterIterator(code);
         afds = new ArrayList<>();
         afds.add(new Comentario());
+        afds.add(new TypeString());
         afds.add(new Delimitadores());
         afds.add(new Conjuncao());
         afds.add(new Reservadas());

@@ -1,13 +1,25 @@
-latinha numero;
-latinha fatorial = 1;
+latinha a;
+latinha b;
+latinha c;
+dose d;
 
-canta("Digite um numero");
-bebe("%d", &numero);
+canta("Programa Teste");
+canta("Digite A");
+bebe("%d", &a);
+canta("Digite B");
+bebe("%d", &b);
 
-latinha i = 1;
-boateAzul (i; i <= numero; i++){
-    fatorial = fatorial*i;
+velho(a < b){
+    c = a + b;
+}
+barreiro{
+    c = a - b;
 }
 
-canta("O fatorial do numero é");
-canta("%d", fatorial);
+canta("C e igual a");
+canta("%d", c);
+
+d = c / (a + b);
+
+canta("D e igual a");
+canta("%f", d);
