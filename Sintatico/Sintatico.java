@@ -19,7 +19,7 @@ public abstract class Sintatico {
     }
     
     public static void erro(String regra){
-        System.out.println("Regra: " + regra);
+        System.out.println("Erro na regra: " + regra + "\nToken: " + token.toString() + "\n" + token.getPosicao());
         System.exit(0); // encerra o programa
     }
     
