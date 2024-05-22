@@ -1,6 +1,31 @@
 #include <stdio.h>
 
-int main(){
-int a ; int b ; int c ; double d ; printf ( "Programa Teste\n" ) ; printf ( "Digite A\n" ) ; scanf ( "%d" , &a ) ; printf ( "Digite B\n" ) ; scanf ( "%d" , &b ) ; if ( a < b ) { c = a +b ; } else { c = a -b ; } printf ( "C e igual a\n" ) ; printf ( "%d" , c ) ; d = c /( a +b ) ; printf ( "\n" ) ; printf ( "D e igual a\n" ) ; printf ( "%f" , d ) ; 
-return 0;
-} 
+int main() {
+    int n ;
+    printf ( "Digite um número maior que 0\n" ) ;
+    scanf ( "%d", &n ) ;
+    if ( n <= 0 ) {
+        printf ( "O valor deve ser maior que 0\n" ) ;
+    }
+    else {
+        int fib1 = 0 ;
+        int fib2 = 1 ;
+        int proximo = 1 ;
+        int i = 1 ;
+        printf ( "%d", fib1 ) ;
+        printf ( "\n" ) ;
+        for ( i ; i < n ; i ++) {
+            if ( i == 1 ) {
+                proximo = fib2 ;
+            }
+            else {
+                proximo = fib1 +fib2 ;
+                fib1 = fib2 ;
+                fib2 = proximo ;
+            }
+            printf ( "%d", proximo ) ;
+            printf ( "\n" ) ;
+        }
+    }
+    return 0;
+}

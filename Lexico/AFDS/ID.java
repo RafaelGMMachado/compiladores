@@ -21,7 +21,7 @@ public class ID extends AFD{
 
     private String readLetter(CharacterIterator code){
         String letter = "";
-        while (Character.isLetter(code.current())){
+        while (Character.isLetterOrDigit(code.current())){
             letter += code.current();
             code.next();
         }
