@@ -63,6 +63,8 @@ public class Lexer {
                 if (t != null){
                     accepted = true;
                     if (t.getTipo() != "COMENTARIO")
+                        t.linha = line;
+                        t.coluna = pos - lastColumn;
                         tokens.add(t);
                     break;
                 }else {
