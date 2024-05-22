@@ -29,7 +29,7 @@ public class Variaveis  extends Sintatico{
 
     public static boolean atribuicao2(){
         if (matchLexema("=")){
-            if ((string() || Expressoes.expressaoAritimetica()) && endCode())
+            if ((matchTipo("STRING") || Expressoes.expressaoAritimetica()) && endCode())
                 return true;
         }
 
@@ -56,21 +56,9 @@ public class Variaveis  extends Sintatico{
     }
 
     public static boolean valor_inicial(){
-        if (matchTipo("NUM") || matchTipo("FLUTUANTE") || string())
+        if (matchTipo("NUM") || matchTipo("FLUTUANTE") || matchTipo("STRING"))
         {
             return true;
-        }
-    
-        return false;
-    }
-
-    public static boolean string(){
-        if (matchLexema("\"", false))
-        {
-            while (matchTipo("ID") || Expressoes.operadorMatematico()){
-                continue;
-            }
-            return matchLexema("\"");
         }
     
         return false;

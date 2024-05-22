@@ -14,7 +14,8 @@ public class Main {
     
     public static void main(String[] args) throws IOException{
         List<Token> tokens = null;
-        String data = readFile("code.txt", StandardCharsets.UTF_8);
+
+        String data = readFile(args[0], StandardCharsets.UTF_8);
         Lexer lexer = new Lexer(data);
         tokens = lexer.getTokens();
 

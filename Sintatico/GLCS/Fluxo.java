@@ -111,7 +111,7 @@ public class Fluxo extends Sintatico {
     }
 
     public static boolean termoCondicao(){
-        if (Variaveis.string() || Expressoes.fator() || Expressoes.expressaoAritimetica())
+        if (matchTipo("STRING") || Expressoes.fator() || Expressoes.expressaoAritimetica())
         {
             return true;
         }
